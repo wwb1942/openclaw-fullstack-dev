@@ -44,11 +44,11 @@ python3 openclaw-fullstack-dev/scripts/generate_fullstack_plan.py \
 - `references/stack-react-express.md`
 - `references/stack-nextjs-nestjs.md`
 
-These provide a sane default project shape, first vertical slice, implementation notes, and verification commands.
+These provide sane defaults for project shape, first vertical slice, implementation notes, and verification commands.
 
 ### 3. Starter templates
 
-This repo now includes copyable starter templates under `openclaw-fullstack-dev/assets/`:
+This repo includes copyable starter templates under `openclaw-fullstack-dev/assets/`:
 
 - `nextjs-fastapi-starter`
 - `react-express-starter`
@@ -59,6 +59,12 @@ Copy one into a working directory with:
 ```bash
 python3 openclaw-fullstack-dev/scripts/copy_starter_template.py --list
 python3 openclaw-fullstack-dev/scripts/copy_starter_template.py nextjs-fastapi-starter /tmp/my-app
+```
+
+Then run a deterministic skeleton check:
+
+```bash
+python3 openclaw-fullstack-dev/scripts/verify_starter_template.py nextjs-fastapi-starter /tmp/my-app
 ```
 
 ### 4. Demo task
@@ -83,10 +89,12 @@ openclaw-fullstack-dev/
 │   │   ├── stack-nextjs-nestjs.md
 │   │   ├── stack-react-express.md
 │   │   ├── starter-templates.md
+│   │   ├── template-verification.md
 │   │   └── verification-checklist.md
 │   └── scripts/
 │       ├── copy_starter_template.py
-│       └── generate_fullstack_plan.py
+│       ├── generate_fullstack_plan.py
+│       └── verify_starter_template.py
 └── dist/
     └── openclaw-fullstack-dev.skill
 ```
@@ -109,7 +117,8 @@ This skill intentionally pushes agents toward:
 - verification before confidence
 - concise but operational handoff
 - copying a starter only when it genuinely helps
+- using deterministic checks before claiming a template is ready
 
 ## Status
 
-Current version: practical v1 with workflow guidance, starter resources, and boilerplate templates.
+Current version: practical v1+ with workflow guidance, starter resources, boilerplate templates, and template verification helpers.

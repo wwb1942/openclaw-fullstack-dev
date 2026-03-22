@@ -26,10 +26,12 @@ Read these resources when needed:
 - `references/stack-react-express.md` — practical default for React + Express builds
 - `references/stack-nextjs-nestjs.md` — practical default for Next.js + NestJS builds
 - `references/starter-templates.md` — choose and copy a concrete starter template
+- `references/template-verification.md` — verify a copied template skeleton before deeper work
 - `references/demo-task.md` — example request, normalized target, and expected delivery
 
 Use `scripts/generate_fullstack_plan.py` when you want a deterministic kickoff plan before coding or handoff.
 Use `scripts/copy_starter_template.py` when the user wants an actual project skeleton copied into a target directory.
+Use `scripts/verify_starter_template.py` after copying when you want a deterministic skeleton check.
 
 ## 1. Normalize the target
 
@@ -110,6 +112,7 @@ If you need to materialize a boilerplate project, run:
 ```bash
 python3 openclaw-fullstack-dev/scripts/copy_starter_template.py --list
 python3 openclaw-fullstack-dev/scripts/copy_starter_template.py nextjs-fastapi-starter /tmp/my-app
+python3 openclaw-fullstack-dev/scripts/verify_starter_template.py nextjs-fastapi-starter /tmp/my-app
 ```
 
 ## 4. Build the thinnest end-to-end slice first

@@ -40,6 +40,14 @@ python3 openclaw-fullstack-dev/scripts/copy_starter_template.py nextjs-fastapi-s
 
 Use `--force` to overwrite an existing destination.
 
+## Verify the copied skeleton
+
+```bash
+python3 openclaw-fullstack-dev/scripts/verify_starter_template.py nextjs-fastapi-starter /tmp/my-app
+```
+
+For the full checklist, read `references/template-verification.md`.
+
 ## Template usage rule
 
 Treat these as starter bones, not finished products. After copying:
