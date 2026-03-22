@@ -8,6 +8,20 @@ Split full-stack starter with a React client and an Express TypeScript server.
 - backend item list/create example
 - React screen that fetches and renders items
 
+## Run
+
+```bash
+# server
+cd server
+npm install
+npm run dev
+
+# client
+cd client
+npm install
+npm run dev
+```
+
 ## Next steps
 
 1. replace demo storage

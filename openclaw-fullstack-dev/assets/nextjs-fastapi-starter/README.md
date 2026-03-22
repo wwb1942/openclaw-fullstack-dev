@@ -14,6 +14,21 @@ Split full-stack starter with a Next.js client and a FastAPI server.
 - basic item create/list API
 - frontend page with create + list flow
 
+## Run
+
+```bash
+# server
+cd server
+# use venv, uv, or another environment manager if you prefer isolation
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+
+# client
+cd client
+npm install
+npm run dev
+```
+
 ## Next steps
 
 1. replace in-memory data with a real database

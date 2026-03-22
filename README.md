@@ -67,7 +67,23 @@ Then run a deterministic skeleton check:
 python3 openclaw-fullstack-dev/scripts/verify_starter_template.py nextjs-fastapi-starter /tmp/my-app
 ```
 
-### 4. Demo task
+### 4. Build-verified template status
+
+These templates were not only copied and structurally verified, but also exercised with real install/build checks:
+
+- `nextjs-fastapi-starter`
+  - Next.js client: `npm install && npm run build` ✅
+  - FastAPI server: dependency install + live `/health` check ✅
+- `react-express-starter`
+  - React client: `npm install && npm run build` ✅
+  - Express server: `npm install && npm run build` + live `/health` check ✅
+- `nextjs-nestjs-starter`
+  - Next.js client: `npm install && npm run build` ✅
+  - NestJS server: `npm install && npm run build` + live `/health` check ✅
+
+The goal is not to claim production completeness, but to prove the starters are materially closer to runnable than placeholder scaffolds.
+
+### 5. Demo task
 
 See `references/demo-task.md` for a concrete example request, normalized target, kickoff command, and completion expectations.
 
