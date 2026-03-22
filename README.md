@@ -24,15 +24,9 @@ The skill is designed to keep agents from jumping straight into code without fir
 6. Verify build, runtime, and integration
 7. Hand off with commands, changed files, assumptions, and gaps
 
-## New practical additions
+## Practical resources included
 
-This repository now includes:
-
-- a deterministic kickoff-plan script
-- stack-specific implementation references
-- a demo task showing expected behavior
-
-### Kickoff plan script
+### 1. Kickoff plan script
 
 Generate a structured first-pass plan before coding:
 
@@ -44,7 +38,7 @@ python3 openclaw-fullstack-dev/scripts/generate_fullstack_plan.py \
   --db postgres
 ```
 
-### Stack guides
+### 2. Stack guides
 
 - `references/stack-nextjs-fastapi.md`
 - `references/stack-react-express.md`
@@ -52,7 +46,22 @@ python3 openclaw-fullstack-dev/scripts/generate_fullstack_plan.py \
 
 These provide a sane default project shape, first vertical slice, implementation notes, and verification commands.
 
-### Demo task
+### 3. Starter templates
+
+This repo now includes copyable starter templates under `openclaw-fullstack-dev/assets/`:
+
+- `nextjs-fastapi-starter`
+- `react-express-starter`
+- `nextjs-nestjs-starter`
+
+Copy one into a working directory with:
+
+```bash
+python3 openclaw-fullstack-dev/scripts/copy_starter_template.py --list
+python3 openclaw-fullstack-dev/scripts/copy_starter_template.py nextjs-fastapi-starter /tmp/my-app
+```
+
+### 4. Demo task
 
 See `references/demo-task.md` for a concrete example request, normalized target, kickoff command, and completion expectations.
 
@@ -62,6 +71,10 @@ See `references/demo-task.md` for a concrete example request, normalized target,
 openclaw-fullstack-dev/
 ├── openclaw-fullstack-dev/
 │   ├── SKILL.md
+│   ├── assets/
+│   │   ├── nextjs-fastapi-starter/
+│   │   ├── nextjs-nestjs-starter/
+│   │   └── react-express-starter/
 │   ├── references/
 │   │   ├── demo-task.md
 │   │   ├── output-contract.md
@@ -69,8 +82,10 @@ openclaw-fullstack-dev/
 │   │   ├── stack-nextjs-fastapi.md
 │   │   ├── stack-nextjs-nestjs.md
 │   │   ├── stack-react-express.md
+│   │   ├── starter-templates.md
 │   │   └── verification-checklist.md
 │   └── scripts/
+│       ├── copy_starter_template.py
 │       └── generate_fullstack_plan.py
 └── dist/
     └── openclaw-fullstack-dev.skill
@@ -93,7 +108,8 @@ This skill intentionally pushes agents toward:
 - smallest viable end-to-end slice first
 - verification before confidence
 - concise but operational handoff
+- copying a starter only when it genuinely helps
 
 ## Status
 
-Current version: usable v0/v1 hybrid skeleton with practical starter resources.
+Current version: practical v1 with workflow guidance, starter resources, and boilerplate templates.

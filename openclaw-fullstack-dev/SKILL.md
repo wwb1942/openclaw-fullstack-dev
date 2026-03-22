@@ -25,9 +25,11 @@ Read these resources when needed:
 - `references/stack-nextjs-fastapi.md` — practical default for Next.js + FastAPI builds
 - `references/stack-react-express.md` — practical default for React + Express builds
 - `references/stack-nextjs-nestjs.md` — practical default for Next.js + NestJS builds
+- `references/starter-templates.md` — choose and copy a concrete starter template
 - `references/demo-task.md` — example request, normalized target, and expected delivery
 
 Use `scripts/generate_fullstack_plan.py` when you want a deterministic kickoff plan before coding or handoff.
+Use `scripts/copy_starter_template.py` when the user wants an actual project skeleton copied into a target directory.
 
 ## 1. Normalize the target
 
@@ -96,10 +98,18 @@ Prefer these defaults unless the repo or user says otherwise:
 
 Use `references/project-shapes.md` if the repo shape is undecided.
 Use a stack reference when the user has already chosen a stack and you want sane defaults quickly.
+If the user asks for a starter codebase rather than just advice, use `references/starter-templates.md` and copy an asset template.
 If you need a concrete kickoff artifact, run:
 
 ```bash
 python3 openclaw-fullstack-dev/scripts/generate_fullstack_plan.py "<goal>" --frontend nextjs --backend fastapi
+```
+
+If you need to materialize a boilerplate project, run:
+
+```bash
+python3 openclaw-fullstack-dev/scripts/copy_starter_template.py --list
+python3 openclaw-fullstack-dev/scripts/copy_starter_template.py nextjs-fastapi-starter /tmp/my-app
 ```
 
 ## 4. Build the thinnest end-to-end slice first
