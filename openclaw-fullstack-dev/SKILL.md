@@ -17,11 +17,17 @@ Build full-stack work in a way that survives contact with reality: make explicit
 6. Verify build, runtime, and integration.
 7. Hand off with commands, files, and known gaps.
 
-Read these references when needed:
+Read these resources when needed:
 
 - `references/project-shapes.md` — choose monolith vs split repo vs API-only
 - `references/verification-checklist.md` — run checks before saying done
 - `references/output-contract.md` — keep progress updates and final delivery consistent
+- `references/stack-nextjs-fastapi.md` — practical default for Next.js + FastAPI builds
+- `references/stack-react-express.md` — practical default for React + Express builds
+- `references/stack-nextjs-nestjs.md` — practical default for Next.js + NestJS builds
+- `references/demo-task.md` — example request, normalized target, and expected delivery
+
+Use `scripts/generate_fullstack_plan.py` when you want a deterministic kickoff plan before coding or handoff.
 
 ## 1. Normalize the target
 
@@ -89,6 +95,12 @@ Prefer these defaults unless the repo or user says otherwise:
 - explicit loading / empty / error UI states
 
 Use `references/project-shapes.md` if the repo shape is undecided.
+Use a stack reference when the user has already chosen a stack and you want sane defaults quickly.
+If you need a concrete kickoff artifact, run:
+
+```bash
+python3 openclaw-fullstack-dev/scripts/generate_fullstack_plan.py "<goal>" --frontend nextjs --backend fastapi
+```
 
 ## 4. Build the thinnest end-to-end slice first
 

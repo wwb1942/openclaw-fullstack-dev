@@ -24,27 +24,57 @@ The skill is designed to keep agents from jumping straight into code without fir
 6. Verify build, runtime, and integration
 7. Hand off with commands, changed files, assumptions, and gaps
 
+## New practical additions
+
+This repository now includes:
+
+- a deterministic kickoff-plan script
+- stack-specific implementation references
+- a demo task showing expected behavior
+
+### Kickoff plan script
+
+Generate a structured first-pass plan before coding:
+
+```bash
+python3 openclaw-fullstack-dev/scripts/generate_fullstack_plan.py \
+  "Build an internal feedback tracker with Next.js, FastAPI, and PostgreSQL" \
+  --frontend nextjs \
+  --backend fastapi \
+  --db postgres
+```
+
+### Stack guides
+
+- `references/stack-nextjs-fastapi.md`
+- `references/stack-react-express.md`
+- `references/stack-nextjs-nestjs.md`
+
+These provide a sane default project shape, first vertical slice, implementation notes, and verification commands.
+
+### Demo task
+
+See `references/demo-task.md` for a concrete example request, normalized target, kickoff command, and completion expectations.
+
 ## Repository layout
 
 ```text
 openclaw-fullstack-dev/
 ├── openclaw-fullstack-dev/
 │   ├── SKILL.md
-│   └── references/
-│       ├── output-contract.md
-│       ├── project-shapes.md
-│       └── verification-checklist.md
+│   ├── references/
+│   │   ├── demo-task.md
+│   │   ├── output-contract.md
+│   │   ├── project-shapes.md
+│   │   ├── stack-nextjs-fastapi.md
+│   │   ├── stack-nextjs-nestjs.md
+│   │   ├── stack-react-express.md
+│   │   └── verification-checklist.md
+│   └── scripts/
+│       └── generate_fullstack_plan.py
 └── dist/
     └── openclaw-fullstack-dev.skill
 ```
-
-## Included files
-
-- `openclaw-fullstack-dev/SKILL.md` — main skill instructions and workflow
-- `openclaw-fullstack-dev/references/project-shapes.md` — when to use monolith vs split vs API-only
-- `openclaw-fullstack-dev/references/verification-checklist.md` — minimum verification bar before claiming success
-- `openclaw-fullstack-dev/references/output-contract.md` — start / progress / blocker / final delivery structure
-- `dist/openclaw-fullstack-dev.skill` — packaged distributable artifact
 
 ## Packaging
 
@@ -66,4 +96,4 @@ This skill intentionally pushes agents toward:
 
 ## Status
 
-Current version: early skeleton, but already usable as a workflow-oriented OpenClaw skill.
+Current version: usable v0/v1 hybrid skeleton with practical starter resources.
