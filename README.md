@@ -1,5 +1,9 @@
 # openclaw-fullstack-dev
 
+[![validate](https://github.com/wwb1942/openclaw-fullstack-dev/actions/workflows/validate.yml/badge.svg)](https://github.com/wwb1942/openclaw-fullstack-dev/actions/workflows/validate.yml)
+[![release](https://img.shields.io/github/v/release/wwb1942/openclaw-fullstack-dev)](https://github.com/wwb1942/openclaw-fullstack-dev/releases)
+[![license](https://img.shields.io/github/license/wwb1942/openclaw-fullstack-dev)](https://github.com/wwb1942/openclaw-fullstack-dev/blob/main/LICENSE)
+
 An OpenClaw AgentSkill for building, refactoring, and reviewing full-stack applications with a workflow that favors explicit architecture decisions, thin end-to-end slices, real verification, and clean handoff.
 
 ## What this skill is for
