@@ -37,20 +37,6 @@ jobs:
             python3 openclaw-fullstack-dev/scripts/verify_starter_template.py "$template" "$dest"
           done
 
-<<<<<<< HEAD
-      - name: Download OpenClaw npm package for packaging script
-        run: |
-          cd /tmp
-          npm pack openclaw --silent
-          rm -rf /tmp/openclaw-npm
-          mkdir -p /tmp/openclaw-npm
-          tar -xzf /tmp/openclaw-*.tgz -C /tmp/openclaw-npm
-          test -f /tmp/openclaw-npm/package/skills/skill-creator/scripts/package_skill.py
-
-      - name: Package distributable skill
-        run: |
-          python3 /tmp/openclaw-npm/package/skills/skill-creator/scripts/package_skill.py ./openclaw-fullstack-dev ./dist
-=======
       - name: Fetch packaging scripts from OpenClaw source
         run: |
           set -euo pipefail
@@ -61,7 +47,6 @@ jobs:
       - name: Package distributable skill
         run: |
           PYTHONPATH=/tmp python3 /tmp/package_skill.py ./openclaw-fullstack-dev ./dist
->>>>>>> 17857e6 (Fetch packaging scripts from OpenClaw source)
           test -f ./dist/openclaw-fullstack-dev.skill
 
   starter-smoke:
