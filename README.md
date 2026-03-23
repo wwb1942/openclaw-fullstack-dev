@@ -6,6 +6,10 @@
 
 An OpenClaw AgentSkill for building, refactoring, and reviewing full-stack applications with a workflow that favors explicit architecture decisions, thin end-to-end slices, real verification, and clean handoff.
 
+## Hero preview
+
+![starter hero](assets/screenshots/starter-hero.png)
+
 ## Animated preview
 
 ![starter demo gif](assets/screenshots/starter-demo.gif)
