@@ -6,6 +6,10 @@
 
 An OpenClaw AgentSkill for building, refactoring, and reviewing full-stack applications with a workflow that favors explicit architecture decisions, thin end-to-end slices, real verification, and clean handoff.
 
+## Animated preview
+
+![starter demo gif](assets/screenshots/starter-demo.gif)
+
 ## What this skill is for
 
 Use `openclaw-fullstack-dev` when an agent needs to handle multi-step full-stack work such as:
