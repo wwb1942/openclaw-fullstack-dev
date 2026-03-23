@@ -74,12 +74,15 @@ These templates were not only copied and structurally verified, but also exercis
 - `nextjs-fastapi-starter`
   - Next.js client: `npm install && npm run build` ✅
   - FastAPI server: dependency install + live `/health` check ✅
+  - Starter UI now includes a real create + list browser flow
 - `react-express-starter`
   - React client: `npm install && npm run build` ✅
   - Express server: `npm install && npm run build` + live `/health` check ✅
+  - Starter UI now includes a real create + list browser flow
 - `nextjs-nestjs-starter`
   - Next.js client: `npm install && npm run build` ✅
   - NestJS server: `npm install && npm run build` + live `/health` check ✅
+  - Starter UI now includes a real create + list browser flow
 
 The goal is not to claim production completeness, but to prove the starters are materially closer to runnable than placeholder scaffolds.
 
@@ -114,6 +117,15 @@ openclaw-fullstack-dev/
 └── dist/
     └── openclaw-fullstack-dev.skill
 ```
+
+## Continuous validation
+
+GitHub Actions now runs two layers of validation:
+
+- helper script checks (`generate_fullstack_plan.py`, template copy, structural verification)
+- starter smoke builds for all three included stacks
+
+See `.github/workflows/validate.yml`.
 
 ## Packaging
 

@@ -1,6 +1,7 @@
 # nextjs-nestjs-starter
 
 Split full-stack starter with a Next.js client and a NestJS server.
+This starter now includes the smallest useful browser loop: create an item and see it rendered back immediately.
 
 ## First slice included
 

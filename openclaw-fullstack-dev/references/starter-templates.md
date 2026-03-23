@@ -8,7 +8,7 @@ Use these templates when the user wants a concrete project skeleton instead of p
 Use when the user wants a product-oriented UI with a Python backend.
 
 Contents:
-- `client/` Next.js page
+- `client/` Next.js page with create + list flow
 - `server/` FastAPI app with `GET /health` and basic item endpoints
 - top-level `.env.example`
 - starter `README.md`
@@ -17,7 +17,7 @@ Contents:
 Use when the user wants a familiar JS/TS split frontend/backend baseline.
 
 Contents:
-- `client/` React app entrypoint
+- `client/` React app entrypoint with create + list flow
 - `server/` Express TypeScript entrypoint
 - top-level `.env.example`
 - starter `README.md`
@@ -26,7 +26,7 @@ Contents:
 Use when the user wants a TypeScript-heavy product stack with a more opinionated backend.
 
 Contents:
-- `client/` Next.js page
+- `client/` Next.js page with create + list flow
 - `server/` NestJS bootstrap files
 - top-level `.env.example`
 - starter `README.md`

@@ -1,6 +1,7 @@
 # react-express-starter
 
 Split full-stack starter with a React client and an Express TypeScript server.
+This starter now includes the smallest useful browser loop: create an item and see it rendered back immediately.
 
 ## First slice included
 

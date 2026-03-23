@@ -1,0 +1,83 @@
+name: validate
+
+on:
+  push:
+    branches: [master, main]
+    tags: ['v*']
+  pull_request:
+
+jobs:
+  helper-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate kickoff plan
+        run: |
+          python3 openclaw-fullstack-dev/scripts/generate_fullstack_plan.py \
+            "Build an internal feedback tracker with Next.js, FastAPI, and PostgreSQL" \
+            --frontend nextjs --backend fastapi --db postgres > /tmp/plan.md
+          test -s /tmp/plan.md
+
+      - name: Copy and verify starter templates
+        run: |
+          python3 openclaw-fullstack-dev/scripts/copy_starter_template.py --list
+          for template in nextjs-fastapi-starter react-express-starter nextjs-nestjs-starter; do
+            dest="/tmp/${template}"
+            python3 openclaw-fullstack-dev/scripts/copy_starter_template.py "$template" "$dest"
+            python3 openclaw-fullstack-dev/scripts/verify_starter_template.py "$template" "$dest"
+          done
+
+  starter-smoke:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        starter: [nextjs-fastapi-starter, react-express-starter, nextjs-nestjs-starter]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Set up Python
+        if: matrix.starter == 'nextjs-fastapi-starter'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install client deps
+        working-directory: openclaw-fullstack-dev/assets/${{ matrix.starter }}/client
+        run: npm install
+
+      - name: Build client
+        working-directory: openclaw-fullstack-dev/assets/${{ matrix.starter }}/client
+        run: npm run build
+
+      - name: Install and build Express server
+        if: matrix.starter == 'react-express-starter'
+        working-directory: openclaw-fullstack-dev/assets/react-express-starter/server
+        run: |
+          npm install
+          npm run build
+
+      - name: Install and build NestJS server
+        if: matrix.starter == 'nextjs-nestjs-starter'
+        working-directory: openclaw-fullstack-dev/assets/nextjs-nestjs-starter/server
+        run: |
+          npm install
+          npm run build
+
+      - name: Install FastAPI server deps
+        if: matrix.starter == 'nextjs-fastapi-starter'
+        working-directory: openclaw-fullstack-dev/assets/nextjs-fastapi-starter/server
+        run: pip install -r requirements.txt

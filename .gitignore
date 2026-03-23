@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+**/node_modules/
+**/.next/
+openclaw-fullstack-dev/assets/*/client/dist/
+openclaw-fullstack-dev/assets/*/server/dist/

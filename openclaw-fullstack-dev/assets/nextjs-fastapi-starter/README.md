@@ -1,6 +1,7 @@
 # nextjs-fastapi-starter
 
 Split full-stack starter with a Next.js client and a FastAPI server.
+This starter now includes the smallest useful browser loop: create an item and see it rendered back immediately.
 
 ## Structure
 
