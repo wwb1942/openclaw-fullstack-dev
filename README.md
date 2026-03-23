@@ -129,6 +129,32 @@ See `.github/workflows/validate.yml`.
 
 ## Packaging
 
+Before packaging, keep the skill tree clean: remove local `node_modules/`, `.next/`, and starter `dist/` build output so the distributable artifact only contains source files.
+
+Rebuild the `.skill` package with:
+
+```bash
+python3 /usr/lib/node_modules/openclaw/skills/skill-creator/scripts/package_skill.py ./openclaw-fullstack-dev ./dist
+```
+
+## Design goals
+
+This skill intentionally pushes agents toward:
+
+- explicit assumptions
+- architecture before implementation
+- smallest viable end-to-end slice first
+- verification before confidence
+- concise but operational handoff
+- copying a starter only when it genuinely helps
+- using deterministic checks before claiming a template is ready
+
+## Status
+
+Current version: practical v1+ with workflow guidance, starter resources, boilerplate templates, and template verification helpers.
+ctical v1+ with workflow guidance, starter resources, boilerplate templates, and template verification helpers.
+aging
+
 Rebuild the `.skill` package with:
 
 ```bash
