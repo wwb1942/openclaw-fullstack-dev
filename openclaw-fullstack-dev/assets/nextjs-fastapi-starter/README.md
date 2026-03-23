@@ -13,6 +13,7 @@ This starter now includes the smallest useful browser loop: create an item and s
 
 - backend health route
 - basic item create/list API
+- local split-dev CORS enabled for the Next.js client
 - frontend page with create + list flow
 
 ## Run

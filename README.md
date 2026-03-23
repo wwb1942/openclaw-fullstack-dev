@@ -125,6 +125,8 @@ Use this repo in two modes:
 
 ```text
 openclaw-fullstack-dev/
+├── assets/
+│   └── screenshots/
 ├── openclaw-fullstack-dev/
 │   ├── SKILL.md
 │   ├── assets/
@@ -183,6 +185,14 @@ This skill intentionally pushes agents toward:
 - architecture before implementation
 - smallest viable end-to-end slice first
 - verification before confidence
+- concise but operational handoff
+- copying a starter only when it genuinely helps
+- using deterministic checks before claiming a template is ready
+
+## Status
+
+Current version: practical v1+ with workflow guidance, starter resources, boilerplate templates, and template verification helpers.
+ before confidence
 - concise but operational handoff
 - copying a starter only when it genuinely helps
 - using deterministic checks before claiming a template is ready
