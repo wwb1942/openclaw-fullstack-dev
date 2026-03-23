@@ -90,6 +90,33 @@ The goal is not to claim production completeness, but to prove the starters are 
 
 See `references/demo-task.md` for a concrete example request, normalized target, kickoff command, and completion expectations.
 
+## Repository quickstart
+
+```bash
+# 1) run helper tests
+python3 -m unittest discover -s tests -v
+
+# 2) generate a kickoff plan
+python3 openclaw-fullstack-dev/scripts/generate_fullstack_plan.py \
+  "Build an internal feedback tracker with Next.js, FastAPI, and PostgreSQL" \
+  --frontend nextjs \
+  --backend fastapi \
+  --db postgres
+
+# 3) copy and inspect a starter
+python3 openclaw-fullstack-dev/scripts/copy_starter_template.py nextjs-fastapi-starter /tmp/my-app
+python3 openclaw-fullstack-dev/scripts/verify_starter_template.py nextjs-fastapi-starter /tmp/my-app
+
+# 4) package a distributable skill artifact
+OPENCLAW_ROOT="$(npm root -g)/openclaw"
+python3 "$OPENCLAW_ROOT/skills/skill-creator/scripts/package_skill.py" ./openclaw-fullstack-dev ./dist
+```
+
+Use this repo in two modes:
+
+- **source mode**: iterate on `SKILL.md`, references, scripts, and starter assets directly
+- **distribution mode**: ship `dist/openclaw-fullstack-dev.skill` as the packaged artifact
+
 ## Repository layout
 
 ```text
@@ -114,16 +141,22 @@ openclaw-fullstack-dev/
 │       ├── copy_starter_template.py
 │       ├── generate_fullstack_plan.py
 │       └── verify_starter_template.py
+├── tests/
+│   ├── test_copy_starter_template.py
+│   ├── test_generate_fullstack_plan.py
+│   └── test_verify_starter_template.py
 └── dist/
     └── openclaw-fullstack-dev.skill
 ```
 
 ## Continuous validation
 
-GitHub Actions now runs two layers of validation:
+GitHub Actions now runs four layers of validation:
 
+- helper unit tests for the deterministic Python scripts
 - helper script checks (`generate_fullstack_plan.py`, template copy, structural verification)
 - starter smoke builds for all three included stacks
+- live backend `/health` smoke checks plus packaged `.skill` generation
 
 See `.github/workflows/validate.yml`.
 
@@ -134,31 +167,8 @@ Before packaging, keep the skill tree clean: remove local `node_modules/`, `.nex
 Rebuild the `.skill` package with:
 
 ```bash
-python3 /usr/lib/node_modules/openclaw/skills/skill-creator/scripts/package_skill.py ./openclaw-fullstack-dev ./dist
-```
-
-## Design goals
-
-This skill intentionally pushes agents toward:
-
-- explicit assumptions
-- architecture before implementation
-- smallest viable end-to-end slice first
-- verification before confidence
-- concise but operational handoff
-- copying a starter only when it genuinely helps
-- using deterministic checks before claiming a template is ready
-
-## Status
-
-Current version: practical v1+ with workflow guidance, starter resources, boilerplate templates, and template verification helpers.
-ctical v1+ with workflow guidance, starter resources, boilerplate templates, and template verification helpers.
-aging
-
-Rebuild the `.skill` package with:
-
-```bash
-python3 /usr/lib/node_modules/openclaw/skills/skill-creator/scripts/package_skill.py ./openclaw-fullstack-dev ./dist
+OPENCLAW_ROOT="$(npm root -g)/openclaw"
+python3 "$OPENCLAW_ROOT/skills/skill-creator/scripts/package_skill.py" ./openclaw-fullstack-dev ./dist
 ```
 
 ## Design goals

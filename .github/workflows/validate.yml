@@ -37,9 +37,13 @@ jobs:
             python3 openclaw-fullstack-dev/scripts/verify_starter_template.py "$template" "$dest"
           done
 
+      - name: Install OpenClaw for packaging
+        run: npm install -g openclaw
+
       - name: Package distributable skill
         run: |
-          python3 /usr/lib/node_modules/openclaw/skills/skill-creator/scripts/package_skill.py ./openclaw-fullstack-dev ./dist
+          OPENCLAW_ROOT="$(npm root -g)/openclaw"
+          python3 "$OPENCLAW_ROOT/skills/skill-creator/scripts/package_skill.py" ./openclaw-fullstack-dev ./dist
           test -f ./dist/openclaw-fullstack-dev.skill
 
   starter-smoke:
