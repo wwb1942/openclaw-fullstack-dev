@@ -1,6 +1,6 @@
 # openclaw-fullstack-dev
 
-[![Maintained with Codex](https://img.shields.io/badge/Maintained%20with-Codex-1f6feb)](https://github.com/wwb1942/openclaw-fullstack-dev)
+[![Built with Codex](https://img.shields.io/badge/Built%20with-Codex-1f6feb)](https://github.com/openai/codex)
 [![validate](https://github.com/wwb1942/openclaw-fullstack-dev/actions/workflows/validate.yml/badge.svg)](https://github.com/wwb1942/openclaw-fullstack-dev/actions/workflows/validate.yml)
 [![release](https://img.shields.io/github/v/release/wwb1942/openclaw-fullstack-dev)](https://github.com/wwb1942/openclaw-fullstack-dev/releases)
 [![license](https://img.shields.io/github/license/wwb1942/openclaw-fullstack-dev)](https://github.com/wwb1942/openclaw-fullstack-dev/blob/main/LICENSE)
